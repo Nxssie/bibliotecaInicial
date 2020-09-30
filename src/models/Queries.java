@@ -12,11 +12,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
-import FrmPrincipal.*;
+//import FrmPrincipal.*;
+import models.DBConnection.*;
 
 /**
  *
- * @author root
+ * @author Carlos Sanchez
  */
 public class Queries {
 
@@ -25,7 +26,7 @@ public class Queries {
     private VistaTabla vtabla = null;
 
     DBConnection connect1 = new DBConnection();
-
+    
     private void showData(String sql) {
 
         try {

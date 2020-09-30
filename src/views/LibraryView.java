@@ -89,6 +89,11 @@ public class LibraryView extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 33, -1, 274));
 
         altasButton.setText("Altas");
+        altasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altasButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(altasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 325, -1, -1));
 
         bajasButton.setText("Bajas");
@@ -99,6 +104,10 @@ public class LibraryView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void altasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altasButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_altasButtonActionPerformed
 
     
     
