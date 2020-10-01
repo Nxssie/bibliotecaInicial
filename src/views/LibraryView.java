@@ -51,24 +51,24 @@ public class LibraryView extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Registro");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 33, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         jLabel2.setText("DNI");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 91, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         jLabel3.setText("Nombre");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 151, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         jLabel4.setText("Apellido 1");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 209, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         jLabel5.setText("Apellido 2");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 267, -1, -1));
-        getContentPane().add(apellido2TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 140, -1));
-        getContentPane().add(apellido1TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 230, 140, -1));
-        getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 172, 140, -1));
-        getContentPane().add(dniTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 112, 140, -1));
-        getContentPane().add(registroTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 54, 140, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        getContentPane().add(apellido2TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 140, -1));
+        getContentPane().add(apellido1TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 140, -1));
+        getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 140, -1));
+        getContentPane().add(dniTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 140, -1));
+        getContentPane().add(registroTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, -1));
 
         salirButton.setText("Salir");
         getContentPane().add(salirButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 364, -1, -1));
@@ -114,55 +114,23 @@ public class LibraryView extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LibraryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LibraryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LibraryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LibraryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LibraryView().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton altasButton;
-    private javax.swing.JTextField apellido1TextField;
-    private javax.swing.JTextField apellido2TextField;
-    private javax.swing.JButton bajasButton;
-    private javax.swing.JTextField dniTextField;
+    public javax.swing.JButton altasButton;
+    public javax.swing.JTextField apellido1TextField;
+    public javax.swing.JTextField apellido2TextField;
+    public javax.swing.JButton bajasButton;
+    public javax.swing.JTextField dniTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton modificarButton;
-    private javax.swing.JTextField nameTextField;
-    private javax.swing.JTextField registroTextField;
-    private javax.swing.JButton salirButton;
-    private javax.swing.JTable showDataTable;
+    public javax.swing.JButton modificarButton;
+    public javax.swing.JTextField nameTextField;
+    public javax.swing.JTextField registroTextField;
+    public javax.swing.JButton salirButton;
+    public javax.swing.JTable showDataTable;
     // End of variables declaration//GEN-END:variables
 }

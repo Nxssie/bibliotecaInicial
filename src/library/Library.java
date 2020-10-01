@@ -14,11 +14,13 @@ import views.*;
  */
 public class Library {
     
-    Queries model = new Queries();
-    LibraryView view = new LibraryView();
-    Controller controller = new Controller(model, view);
+    
     
     public static void main(String[] args) {
-        controller.start();
+        Model model = new Model();
+        LibraryView view = new LibraryView();
+        Controller controller = new Controller(model, view);
+        
+        controller.start();    
     }
 }

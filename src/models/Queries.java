@@ -23,30 +23,30 @@ public class Queries {
 
     private Connection conn = null;
     private ResultSet rs = null;
-    private VistaTabla vtabla = null;
+    //private VistaTabla vtabla = null;
 
-    DBConnection connect1 = new DBConnection();
+    DBConnection connect = new DBConnection();
     
     private void showData(String sql) {
 
         try {
-            Statement stmt = connect1.getConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            Statement stmt = connect.getConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             rs = stmt.executeQuery(sql);
 
         } catch (SQLException ex) {
         }
     }
 
-    public int executeUpdateQuery(String sql) {
+    /*public int executeUpdateQuery(String sql) {
         int i;
         try {
-            Statement stmt = connect1.getConnection().createStatement();
+            Statement stmt = connect.getConnection().createStatement();
             JOptionPane.showMessageDialog(null, sql);
             i = stmt.executeUpdate(sql);
         } catch (SQLException ex) {
             i = 0;
         }
         return i;
-    }
+    }*/
 
 }

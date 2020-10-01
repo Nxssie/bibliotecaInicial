@@ -10,7 +10,7 @@ public class DBConnection {
    static String bd = "libros";
    static String login = "root";
    static String password = "1234";
-   static String url = "jdbc:mysql://localhost/"+bd;
+   static String url = "jdbc:mysql://localhost:3306/"+bd;
    
    Connection conn = null;
    
@@ -33,7 +33,7 @@ public class DBConnection {
       return conn;
    }
 
-   public void desconectar(){
+   public void disconnect(){
       conn = null;
    }
    
