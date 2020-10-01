@@ -34,9 +34,9 @@ public class Controller {
     class altasButtonListener implements ActionListener {
         @Override
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            model.executeQuery("INSERT INTO alumnos VALUES " + view.registroTextField.getText() + "," +
-                    view.dniTextField.getText() + "," + view.nameTextField.getText() + "," + view.apellido1TextField.getText() +
-                    "," + view.apellido2TextField.getText() 
+            model.executeQuery("INSERT INTO alumnos VALUES '" + view.registroTextField.getText() + "','" +
+                    view.dniTextField.getText() + "','" + view.nameTextField.getText() + "','" + view.apellido1TextField.getText() +
+                    "','" + view.apellido2TextField.getText() + "'" 
             );
         }
     }
