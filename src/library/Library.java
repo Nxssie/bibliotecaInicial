@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package library;
-import models.*;
 import controllers.*;
-import views.*;
 
 /**
  *
@@ -17,10 +15,6 @@ public class Library {
     
     
     public static void main(String[] args) {
-        Model model = new Model();
-        LibraryView view = new LibraryView();
-        Controller controller = new Controller(model, view);
-        
-        controller.start();    
+        Controller controller = new Controller();  
     }
 }

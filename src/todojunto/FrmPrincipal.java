@@ -31,8 +31,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public FrmPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        models.Queries.executeUpdateQuery("select * from alumnos");
-        vtabla = new VistaTabla(rs);
+        //models.Queries.executeUpdateQuery("select * from alumnos");
+        //vtabla = new VistaTabla(rs);
         TablaAlumnos.setModel(vtabla);
 
     }
@@ -245,15 +245,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void TablaAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaAlumnosMouseClicked
         showData(TablaAlumnos.getSelectedRow());
     }//GEN-LAST:event_TablaAlumnosMouseClicked
-    private void showData(int fila) {
-
-        txtDni.setText(String.valueOf(TablaAlumnos.getValueAt(fila, 1)));
-        txtRegistro.setText(String.valueOf(TablaAlumnos.getValueAt(fila, 0)));
-        txtNombre.setText(String.valueOf(TablaAlumnos.getValueAt(fila, 2)));
-        txtApellido1.setText(String.valueOf(TablaAlumnos.getValueAt(fila, 3)));
-        txtApellido2.setText(String.valueOf(TablaAlumnos.getValueAt(fila, 4)));
-
-    }
+   
     private void btnAltasBotonesClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltasBotonesClick
 
         /* 
@@ -262,26 +254,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAltasBotonesClick
 
     private void btnBajasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajasActionPerformed
-        String sql = "delete from alumnos where registro=" + txtRegistro.getText();
-
-        if (executeUpdateQuery(sql) > 0) {
-            JOptionPane.showMessageDialog(null, "Baja Correcta");
-        } else {
-            JOptionPane.showMessageDialog(null, "Ha Habido un Error");
-        }
+        
 
     }//GEN-LAST:event_btnBajasActionPerformed
 
     private void btnModificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificacionesActionPerformed
 
-        String sql = "update alumnos set dni='" + txtDni.getText() + "', nombre='" + txtNombre.getText() + "', "
-                + "apellido1='" + txtApellido1.getText() + "', apellido2='" + txtApellido2.getText() + "' "
-                + "where registro=" + txtRegistro.getText();
-        if (executeUpdateQuery(sql) > 0) {
-            JOptionPane.showMessageDialog(null, "Modificación Correcta");
-        } else {
-            JOptionPane.showMessageDialog(null, "Ha Habido un Error");
-        }
     }//GEN-LAST:event_btnModificacionesActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -350,49 +328,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRegistro;
     // End of variables declaration//GEN-END:variables
-class VistaTabla extends AbstractTableModel {
 
-        ResultSet _rs;
-        ResultSetMetaData md; //contiene información sobre la estructura de un ResulSet,especialmente sobre sus nom campos
-        int _numColumnas;
-        int _numFilas;
-
-        public VistaTabla(ResultSet rs) {
-            this._rs = rs;
-            try {
-                md = rs.getMetaData();
-                _rs.last();
-                _numFilas = _rs.getRow();
-                _numColumnas = md.getColumnCount();
-
-            } catch (SQLException ex) {
-            }
-        }
-
-        @Override
-        public int getRowCount() {
-            return _numFilas;
-
-        }
-
-        @Override
-        public int getColumnCount() {
-            return _numColumnas;
-        }
-
-        @Override
-        public Object getValueAt(int rowIndex, int columnIndex) {
-            try {
-                _rs.absolute(rowIndex + 1);
-                Object o = _rs.getObject(columnIndex + 1);
-                return o;
-            } catch (SQLException ex) {
-                return ex.toString();
-            }
-
-        }
-
-    }
 
 }
 
