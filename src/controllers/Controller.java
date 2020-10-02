@@ -6,11 +6,10 @@
 package controllers;
 
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import views.LibraryView;
 import models.*;
+import models.Model.VistaTabla;
 
 /**
  *
@@ -18,9 +17,10 @@ import models.*;
  */
 public class Controller {
 
+    private Queries queries = new Queries();
     Model model = new Model();
+    Model.VistaTabla vtabla = model.new VistaTabla(queries.showData("Select * from alumnos"));
     LibraryView view = new LibraryView();
-    VistaTabla vtabla = new Model.VistaTabla(rs);
 
     public Controller() {
         this.view.setVisible(true);
@@ -33,7 +33,8 @@ public class Controller {
         this.view.bajasButton.addActionListener(new bajasButtonListener());
         this.view.modificarButton.addActionListener(new modificarButtonListener());
         this.view.salirButton.addActionListener(new salirButtonListener());
-        
+        this.view.actualizarButton.addActionListener(new actualizarButtonListener());
+
         this.view.studentsTable.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -44,16 +45,32 @@ public class Controller {
 
     public void cleanForm() {
         view.registroTextField.setText("");
+        view.dniTextField.setText("");
+        view.nameTextField.setText("");
+        view.apellido1TextField.setText("");
+        view.apellido2TextField.setText("");
+    }
+
+    public void refreshTable() {
+        vtabla = model.new VistaTabla(queries.showData("SELECT * FROM alumnos"));
+        view.studentsTable.setModel(vtabla);
     }
 
     class altasButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            model.executeQuery("INSERT INTO alumnos (registro, dni, nombre, apellido1, apellido2) VALUES (" + view.registroTextField.getText() + ",'"
-                    + view.dniTextField.getText() + "','" + view.nameTextField.getText() + "','" + view.apellido1TextField.getText()
-                    + "','" + view.apellido2TextField.getText() + "')"
-            );
+            try {
+                model.executeQuery("INSERT INTO alumnos (registro, dni, nombre, apellido1, apellido2) VALUES (" + view.registroTextField.getText() + ",'"
+                        + view.dniTextField.getText() + "','" + view.nameTextField.getText() + "','" + view.apellido1TextField.getText()
+                        + "','" + view.apellido2TextField.getText() + "')"
+                );
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+
+            cleanForm();
+            refreshTable();
         }
     }
 
@@ -61,7 +78,14 @@ public class Controller {
 
         @Override
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            model.executeQuery("delete from alumnos where registro='" + view.registroTextField.getText() + "'");
+            try {
+                model.executeQuery("delete from alumnos where registro='" + view.registroTextField.getText() + "'");
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+
+            cleanForm();
+            refreshTable();
         }
     }
 
@@ -79,6 +103,7 @@ public class Controller {
             }
 
             cleanForm();
+            refreshTable();
         }
     }
 
@@ -90,12 +115,19 @@ public class Controller {
         }
     }
 
+    class actualizarButtonListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            refreshTable();
+        }
+    }
+
     public void studentsTableMouseClicked(java.awt.event.MouseEvent evt) {
         showData(view.studentsTable.getSelectedRow());
     }
 
-
-private void showData(int fila) {
+    private void showData(int fila) {
         view.registroTextField.setText(String.valueOf(view.studentsTable.getValueAt(fila, 0)));
         view.dniTextField.setText(String.valueOf(view.studentsTable.getValueAt(fila, 1)));
         view.nameTextField.setText(String.valueOf(view.studentsTable.getValueAt(fila, 2)));

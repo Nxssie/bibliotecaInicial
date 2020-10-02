@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package library;
+
 import controllers.*;
 
 /**
@@ -11,10 +12,8 @@ import controllers.*;
  * @author root
  */
 public class Library {
-    
-    
-    
+
     public static void main(String[] args) {
-        Controller controller = new Controller();  
+        Controller controller = new Controller();
     }
 }

@@ -22,7 +22,7 @@ import models.DBConnection.*;
 public class Queries {
 
     private Connection conn = null;
-    private ResultSet rs = null;
+    private static ResultSet rs = null;
     //private VistaTabla vtabla = null;
 
     DBConnection connect = new DBConnection();
@@ -34,7 +34,7 @@ public class Queries {
             rs = stmt.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
-        
+            System.err.println(ex.getMessage());
         }
         
         return rs;

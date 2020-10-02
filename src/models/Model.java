@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.table.AbstractTableModel;
 import models.*;
-import views.LibraryView;
 
 /**
  *
@@ -24,14 +23,8 @@ public class Model {
     private ResultSet rs = null;
     private Queries queries = new Queries();
     DBConnection connect = new DBConnection();
-    private VistaTabla vtabla = null;
 
     public Model() {
-        vtabla = new VistaTabla(queries.showData("Select * from alumnos"));
-    }
-
-    public VistaTabla getVtabla() {
-        return vtabla;
     }
 
     public int executeQuery(String sql) {

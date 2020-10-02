@@ -44,6 +44,7 @@ public class LibraryView extends javax.swing.JFrame {
         altasButton = new javax.swing.JButton();
         bajasButton = new javax.swing.JButton();
         modificarButton = new javax.swing.JButton();
+        actualizarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
@@ -85,7 +86,7 @@ public class LibraryView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(studentsTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 33, -1, 274));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 274));
 
         altasButton.setText("Altas");
         altasButton.addActionListener(new java.awt.event.ActionListener() {
@@ -93,13 +94,16 @@ public class LibraryView extends javax.swing.JFrame {
                 altasButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(altasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 325, -1, -1));
+        getContentPane().add(altasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
         bajasButton.setText("Bajas");
-        getContentPane().add(bajasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 325, -1, -1));
+        getContentPane().add(bajasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, -1));
 
         modificarButton.setText("Modificar");
-        getContentPane().add(modificarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 325, -1, -1));
+        getContentPane().add(modificarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
+
+        actualizarButton.setText("Actualizar");
+        getContentPane().add(actualizarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -115,6 +119,7 @@ public class LibraryView extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton actualizarButton;
     public javax.swing.JButton altasButton;
     public javax.swing.JTextField apellido1TextField;
     public javax.swing.JTextField apellido2TextField;
