@@ -32,7 +32,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         //models.Queries.executeUpdateQuery("select * from alumnos");
-        //vtabla = new VistaTabla(rs);
+        vtabla = new VistaTabla(rs);
         TablaAlumnos.setModel(vtabla);
 
     }

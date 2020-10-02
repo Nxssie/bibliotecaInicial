@@ -27,14 +27,17 @@ public class Queries {
 
     DBConnection connect = new DBConnection();
     
-    private void showData(String sql) {
+    public ResultSet showData(String sql) {
 
         try {
             Statement stmt = connect.getConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             rs = stmt.executeQuery(sql);
-
+            return rs;
         } catch (SQLException ex) {
+        
         }
+        
+        return rs;
     }
 
     /*public int executeUpdateQuery(String sql) {

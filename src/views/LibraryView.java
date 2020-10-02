@@ -40,13 +40,12 @@ public class LibraryView extends javax.swing.JFrame {
         registroTextField = new javax.swing.JTextField();
         salirButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        showDataTable = new javax.swing.JTable();
+        studentsTable = new javax.swing.JTable();
         altasButton = new javax.swing.JButton();
         bajasButton = new javax.swing.JButton();
         modificarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -73,7 +72,7 @@ public class LibraryView extends javax.swing.JFrame {
         salirButton.setText("Salir");
         getContentPane().add(salirButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 364, -1, -1));
 
-        showDataTable.setModel(new javax.swing.table.DefaultTableModel(
+        studentsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -84,7 +83,7 @@ public class LibraryView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(showDataTable);
+        jScrollPane1.setViewportView(studentsTable);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 33, -1, 274));
 
@@ -131,6 +130,6 @@ public class LibraryView extends javax.swing.JFrame {
     public javax.swing.JTextField nameTextField;
     public javax.swing.JTextField registroTextField;
     public javax.swing.JButton salirButton;
-    public javax.swing.JTable showDataTable;
+    public javax.swing.JTable studentsTable;
     // End of variables declaration//GEN-END:variables
 }

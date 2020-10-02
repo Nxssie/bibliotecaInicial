@@ -21,10 +21,17 @@ import views.LibraryView;
 public class Model {
 
     private Connection conn = null;
+    private ResultSet rs = null;
+    private Queries queries = new Queries();
     DBConnection connect = new DBConnection();
+    private VistaTabla vtabla = null;
 
     public Model() {
+        vtabla = new VistaTabla(queries.showData("Select * from alumnos"));
+    }
 
+    public VistaTabla getVtabla() {
+        return vtabla;
     }
 
     public int executeQuery(String sql) {
@@ -38,7 +45,7 @@ public class Model {
         return i;
     }
 
-    class VistaTabla extends AbstractTableModel {
+    public class VistaTabla extends AbstractTableModel {
 
         ResultSet rs;
         ResultSetMetaData md; //contiene información sobre la estructura de un ResulSet,especialmente sobre sus nom campos
@@ -81,4 +88,6 @@ public class Model {
         }
 
     }
+    
+    
 }
