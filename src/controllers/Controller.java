@@ -5,8 +5,10 @@
  */
 package controllers;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import views.LibraryView;
 import models.*;
 import models.Model.VistaTabla;
@@ -15,7 +17,7 @@ import models.Model.VistaTabla;
  *
  * @author root
  */
-public class Controller {
+public class Controller implements ActionListener {
 
     private Queries queries = new Queries();
     Model model = new Model();
@@ -28,12 +30,73 @@ public class Controller {
         listeners();
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        switch (e.getActionCommand()) {
+            case "Altas":
+                insert();
+                break;
+            case "Bajas":
+                delete();
+                break;
+            case "Modificar":
+                update();
+                break;
+            case "Actualizar":
+                refreshTable();
+                JOptionPane.showMessageDialog(null, "Tabla actualizada");
+                break;
+            case "Salir":
+                System.exit(0);
+                break;
+        }
+    }
+
+    private void insert() {
+        try {
+            model.executeQuery("INSERT INTO alumnos (registro, dni, nombre, apellido1, apellido2) VALUES (" + view.getRegistroTextField().getText() + ",'"
+                    + view.getDniTextField().getText() + "','" + view.getNameTextField().getText() + "','" + view.getApellido1TextField().getText()
+                    + "','" + view.getApellido2TextField().getText() + "')"
+            );
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        JOptionPane.showMessageDialog(null, "Registro Nº " + view.getRegistroTextField().getText() + " dado de alta.");
+        cleanForm();
+        refreshTable();
+    }
+
+    private void delete() {
+        try {
+            model.executeQuery("delete from alumnos where registro='" + view.getRegistroTextField().getText() + "'");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        JOptionPane.showMessageDialog(null, "Registro Nº " + view.getRegistroTextField().getText() + " eliminado.");
+        cleanForm();
+        refreshTable();
+    }
+
+    private void update() {
+        try {
+            model.executeQuery("update alumnos set dni='" + view.getDniTextField().getText() + "', nombre='" + view.getNameTextField().getText() + "', "
+                    + "apellido1='" + view.getApellido1TextField().getText() + "', apellido2='" + view.getApellido2TextField().getText() + "' "
+                    + "where registro='" + view.getRegistroTextField().getText() + "'");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        
+        JOptionPane.showMessageDialog(null, "Registro Nº " + view.getRegistroTextField().getText() + " modificado.");
+        cleanForm();
+        refreshTable();
+    }
+
     public void listeners() {
-        this.view.getAltasButton().addActionListener(new altasButtonListener());
-        this.view.getBajasButton().addActionListener(new bajasButtonListener());
-        this.view.getModificarButton().addActionListener(new modificarButtonListener());
-        this.view.getSalirButton().addActionListener(new salirButtonListener());
-        this.view.getActualizarButton().addActionListener(new actualizarButtonListener());
+        this.view.getAltasButton().addActionListener(this);
+        this.view.getBajasButton().addActionListener(this);
+        this.view.getModificarButton().addActionListener(this);
+        this.view.getSalirButton().addActionListener(this);
+        this.view.getActualizarButton().addActionListener(this);
 
         this.view.getStudentsTable().addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -54,73 +117,6 @@ public class Controller {
     public void refreshTable() {
         vtabla = model.new VistaTabla(queries.showData("SELECT * FROM alumnos"));
         view.getStudentsTable().setModel(vtabla);
-    }
-
-    class altasButtonListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            try {
-                model.executeQuery("INSERT INTO alumnos (registro, dni, nombre, apellido1, apellido2) VALUES (" + view.getRegistroTextField().getText() + ",'"
-                        + view.getDniTextField().getText() + "','" + view.getNameTextField().getText() + "','" + view.getApellido1TextField().getText()
-                        + "','" + view.getApellido2TextField().getText() + "')"
-                );
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-
-            cleanForm();
-            refreshTable();
-        }
-    }
-
-    class bajasButtonListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            try {
-                model.executeQuery("delete from alumnos where registro='" + view.getRegistroTextField().getText() + "'");
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-
-            cleanForm();
-            refreshTable();
-        }
-    }
-
-    class modificarButtonListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-
-            try {
-                model.executeQuery("update alumnos set dni='" + view.getDniTextField().getText() + "', nombre='" + view.getNameTextField().getText() + "', "
-                        + "apellido1='" + view.getApellido1TextField().getText() + "', apellido2='" + view.getApellido2TextField().getText() + "' "
-                        + "where registro='" + view.getRegistroTextField().getText() + "'");
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-
-            cleanForm();
-            refreshTable();
-        }
-    }
-
-    class salirButtonListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            System.exit(0);
-        }
-    }
-
-    class actualizarButtonListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            refreshTable();
-        }
     }
 
     public void studentsTableMouseClicked(java.awt.event.MouseEvent evt) {
