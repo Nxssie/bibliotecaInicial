@@ -24,18 +24,18 @@ public class Controller {
 
     public Controller() {
         this.view.setVisible(true);
-        this.view.studentsTable.setModel(vtabla);
+        this.view.getStudentsTable().setModel(vtabla);
         listeners();
     }
 
     public void listeners() {
-        this.view.altasButton.addActionListener(new altasButtonListener());
-        this.view.bajasButton.addActionListener(new bajasButtonListener());
-        this.view.modificarButton.addActionListener(new modificarButtonListener());
-        this.view.salirButton.addActionListener(new salirButtonListener());
-        this.view.actualizarButton.addActionListener(new actualizarButtonListener());
+        this.view.getAltasButton().addActionListener(new altasButtonListener());
+        this.view.getBajasButton().addActionListener(new bajasButtonListener());
+        this.view.getModificarButton().addActionListener(new modificarButtonListener());
+        this.view.getSalirButton().addActionListener(new salirButtonListener());
+        this.view.getActualizarButton().addActionListener(new actualizarButtonListener());
 
-        this.view.studentsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.view.getStudentsTable().addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 studentsTableMouseClicked(evt);
@@ -44,16 +44,16 @@ public class Controller {
     }
 
     public void cleanForm() {
-        view.registroTextField.setText("");
-        view.dniTextField.setText("");
-        view.nameTextField.setText("");
-        view.apellido1TextField.setText("");
-        view.apellido2TextField.setText("");
+        view.getRegistroTextField().setText("");
+        view.getDniTextField().setText("");
+        view.getNameTextField().setText("");
+        view.getApellido1TextField().setText("");
+        view.getApellido2TextField().setText("");
     }
 
     public void refreshTable() {
         vtabla = model.new VistaTabla(queries.showData("SELECT * FROM alumnos"));
-        view.studentsTable.setModel(vtabla);
+        view.getStudentsTable().setModel(vtabla);
     }
 
     class altasButtonListener implements ActionListener {
@@ -61,9 +61,9 @@ public class Controller {
         @Override
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             try {
-                model.executeQuery("INSERT INTO alumnos (registro, dni, nombre, apellido1, apellido2) VALUES (" + view.registroTextField.getText() + ",'"
-                        + view.dniTextField.getText() + "','" + view.nameTextField.getText() + "','" + view.apellido1TextField.getText()
-                        + "','" + view.apellido2TextField.getText() + "')"
+                model.executeQuery("INSERT INTO alumnos (registro, dni, nombre, apellido1, apellido2) VALUES (" + view.getRegistroTextField().getText() + ",'"
+                        + view.getDniTextField().getText() + "','" + view.getNameTextField().getText() + "','" + view.getApellido1TextField().getText()
+                        + "','" + view.getApellido2TextField().getText() + "')"
                 );
             } catch (Exception e) {
                 System.err.println(e.getMessage());
@@ -79,7 +79,7 @@ public class Controller {
         @Override
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             try {
-                model.executeQuery("delete from alumnos where registro='" + view.registroTextField.getText() + "'");
+                model.executeQuery("delete from alumnos where registro='" + view.getRegistroTextField().getText() + "'");
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
@@ -95,9 +95,9 @@ public class Controller {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
 
             try {
-                model.executeQuery("update alumnos set dni='" + view.dniTextField.getText() + "', nombre='" + view.nameTextField.getText() + "', "
-                        + "apellido1='" + view.apellido1TextField.getText() + "', apellido2='" + view.apellido2TextField.getText() + "' "
-                        + "where registro='" + view.registroTextField.getText() + "'");
+                model.executeQuery("update alumnos set dni='" + view.getDniTextField().getText() + "', nombre='" + view.getNameTextField().getText() + "', "
+                        + "apellido1='" + view.getApellido1TextField().getText() + "', apellido2='" + view.getApellido2TextField().getText() + "' "
+                        + "where registro='" + view.getRegistroTextField().getText() + "'");
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
@@ -124,14 +124,14 @@ public class Controller {
     }
 
     public void studentsTableMouseClicked(java.awt.event.MouseEvent evt) {
-        showData(view.studentsTable.getSelectedRow());
+        showData(view.getStudentsTable().getSelectedRow());
     }
 
     private void showData(int fila) {
-        view.registroTextField.setText(String.valueOf(view.studentsTable.getValueAt(fila, 0)));
-        view.dniTextField.setText(String.valueOf(view.studentsTable.getValueAt(fila, 1)));
-        view.nameTextField.setText(String.valueOf(view.studentsTable.getValueAt(fila, 2)));
-        view.apellido1TextField.setText(String.valueOf(view.studentsTable.getValueAt(fila, 3)));
-        view.apellido2TextField.setText(String.valueOf(view.studentsTable.getValueAt(fila, 4)));
+        view.getRegistroTextField().setText(String.valueOf(view.getStudentsTable().getValueAt(fila, 0)));
+        view.getDniTextField().setText(String.valueOf(view.getStudentsTable().getValueAt(fila, 1)));
+        view.getNameTextField().setText(String.valueOf(view.getStudentsTable().getValueAt(fila, 2)));
+        view.getApellido1TextField().setText(String.valueOf(view.getStudentsTable().getValueAt(fila, 3)));
+        view.getApellido2TextField().setText(String.valueOf(view.getStudentsTable().getValueAt(fila, 4)));
     }
 }

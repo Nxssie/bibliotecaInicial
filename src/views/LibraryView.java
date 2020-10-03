@@ -5,6 +5,10 @@
  */
 package views;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author root
@@ -66,6 +70,12 @@ public class LibraryView extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
         getContentPane().add(apellido2TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 140, -1));
         getContentPane().add(apellido1TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 140, -1));
+
+        nameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTextFieldActionPerformed(evt);
+            }
+        });
         getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 140, -1));
         getContentPane().add(dniTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 140, -1));
         getContentPane().add(registroTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, -1));
@@ -112,29 +122,80 @@ public class LibraryView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_altasButtonActionPerformed
 
+    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTextFieldActionPerformed
+
+    
     
     
     /**
      * @param args the command line arguments
      */
 
+    public JTable getStudentsTable() {
+        return studentsTable;
+    }
+
+    public JButton getActualizarButton() {
+        return actualizarButton;
+    }
+
+    public JButton getAltasButton() {
+        return altasButton;
+    }
+
+    public JButton getBajasButton() {
+        return bajasButton;
+    }
+
+    public JButton getModificarButton() {
+        return modificarButton;
+    }
+
+    public JButton getSalirButton() {
+        return salirButton;
+    }
+
+    public JTextField getApellido1TextField() {
+        return apellido1TextField;
+    }
+
+    public JTextField getApellido2TextField() {
+        return apellido2TextField;
+    }
+
+    public JTextField getDniTextField() {
+        return dniTextField;
+    }
+
+    public JTextField getNameTextField() {
+        return nameTextField;
+    }
+
+    public JTextField getRegistroTextField() {
+        return registroTextField;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton actualizarButton;
-    public javax.swing.JButton altasButton;
-    public javax.swing.JTextField apellido1TextField;
-    public javax.swing.JTextField apellido2TextField;
-    public javax.swing.JButton bajasButton;
-    public javax.swing.JTextField dniTextField;
+    private javax.swing.JButton actualizarButton;
+    private javax.swing.JButton altasButton;
+    private javax.swing.JTextField apellido1TextField;
+    private javax.swing.JTextField apellido2TextField;
+    private javax.swing.JButton bajasButton;
+    private javax.swing.JTextField dniTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JButton modificarButton;
-    public javax.swing.JTextField nameTextField;
-    public javax.swing.JTextField registroTextField;
-    public javax.swing.JButton salirButton;
-    public javax.swing.JTable studentsTable;
+    private javax.swing.JButton modificarButton;
+    private javax.swing.JTextField nameTextField;
+    private javax.swing.JTextField registroTextField;
+    private javax.swing.JButton salirButton;
+    private javax.swing.JTable studentsTable;
     // End of variables declaration//GEN-END:variables
 }
