@@ -1,11 +1,10 @@
 package models;
 
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author Carlos Sánchez
+ * @author Carlos Sanchez
  */
 public class DBConnection {
    static String bd = "libros";

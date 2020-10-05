@@ -7,7 +7,6 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import views.LibraryView;
 import models.*;
@@ -15,7 +14,7 @@ import models.Model.VistaTabla;
 
 /**
  *
- * @author root
+ * @author Carlos Sanchez
  */
 public class Controller implements ActionListener {
 
@@ -72,7 +71,7 @@ public class Controller implements ActionListener {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-        JOptionPane.showMessageDialog(null, "Registro Nº " + view.getRegistroTextField().getText() + " eliminado.");
+        JOptionPane.showMessageDialog(null, "Registro Nº " + view.getRegistroTextField().getText() + " dado de baja.");
         cleanForm();
         refreshTable();
     }

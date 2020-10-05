@@ -5,7 +5,6 @@
  */
 package models;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -14,13 +13,10 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author root
+ * @author Carlos Sanchez
  */
 public class Model {
 
-    private Connection conn = null;
-    private ResultSet rs = null;
-    private Queries queries = new Queries();
     DBConnection connect = new DBConnection();
 
     public Model() {
@@ -38,9 +34,9 @@ public class Model {
     }
 
     public class VistaTabla extends AbstractTableModel {
-
+        
         ResultSet rs;
-        ResultSetMetaData md; //contiene información sobre la estructura de un ResulSet,especialmente sobre sus nom campos
+        ResultSetMetaData md;
         int numColumnas;
         int numFilas;
 
@@ -80,6 +76,5 @@ public class Model {
         }
 
     }
-    
     
 }

@@ -9,7 +9,7 @@ import controllers.*;
 
 /**
  *
- * @author root
+ * @author Carlos Sanchez
  */
 public class Library {
 

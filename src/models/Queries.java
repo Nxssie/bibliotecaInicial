@@ -5,15 +5,9 @@
  */
 package models;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
-import javax.swing.table.AbstractTableModel;
-//import FrmPrincipal.*;
-import models.DBConnection.*;
 
 /**
  *
@@ -21,12 +15,10 @@ import models.DBConnection.*;
  */
 public class Queries {
 
-    private Connection conn = null;
     private static ResultSet rs = null;
-    //private VistaTabla vtabla = null;
 
     DBConnection connect = new DBConnection();
-    
+
     public ResultSet showData(String sql) {
 
         try {
@@ -36,20 +28,7 @@ public class Queries {
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
-        
+
         return rs;
     }
-
-    /*public int executeUpdateQuery(String sql) {
-        int i;
-        try {
-            Statement stmt = connect.getConnection().createStatement();
-            JOptionPane.showMessageDialog(null, sql);
-            i = stmt.executeUpdate(sql);
-        } catch (SQLException ex) {
-            i = 0;
-        }
-        return i;
-    }*/
-
 }

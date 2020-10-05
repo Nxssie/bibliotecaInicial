@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author root
+ * @author Carlos Sanchez
  */
 public class LibraryView extends javax.swing.JFrame {
 
@@ -19,8 +19,14 @@ public class LibraryView extends javax.swing.JFrame {
      * Creates new form libraryView
      */
     public LibraryView() {
+        String[] columnNames = {"Registro",
+                            "DNI",
+                            "Nombre",
+                            "1er Apellido",
+                            "2º Apellido"};
+        studentsTable = new javax.swing.JTable();
         initComponents();
-        this.setSize(675, 475);
+        this.setSize(700, 475);
     }
 
     /**
@@ -70,28 +76,19 @@ public class LibraryView extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
         getContentPane().add(apellido2TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 140, -1));
         getContentPane().add(apellido1TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 140, -1));
-
-        nameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTextFieldActionPerformed(evt);
-            }
-        });
         getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 140, -1));
         getContentPane().add(dniTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 140, -1));
         getContentPane().add(registroTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, -1));
 
         salirButton.setText("Salir");
-        getContentPane().add(salirButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 364, -1, -1));
+        getContentPane().add(salirButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, -1, -1));
 
         studentsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(studentsTable);
@@ -99,11 +96,6 @@ public class LibraryView extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 274));
 
         altasButton.setText("Altas");
-        altasButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                altasButtonActionPerformed(evt);
-            }
-        });
         getContentPane().add(altasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
         bajasButton.setText("Bajas");
@@ -118,14 +110,6 @@ public class LibraryView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void altasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altasButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_altasButtonActionPerformed
-
-    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameTextFieldActionPerformed
-
     
     
     
@@ -136,7 +120,7 @@ public class LibraryView extends javax.swing.JFrame {
     public JTable getStudentsTable() {
         return studentsTable;
     }
-
+    
     public JButton getActualizarButton() {
         return actualizarButton;
     }
