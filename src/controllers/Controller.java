@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import views.LibraryView;
 import models.*;
-import models.Model.VistaTabla;
 
 /**
  *
